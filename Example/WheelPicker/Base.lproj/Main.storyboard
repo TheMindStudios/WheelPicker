@@ -1,25 +1,59 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="WheelPicker_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g0P-xe-5yv" customClass="WheelPicker" customModule="WheelPicker">
+                                <rect key="frame" x="0.0" y="40" width="375" height="80"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="wUk-Yu-FvJ"/>
+                                </constraints>
+                            </view>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2IF-GP-2a6">
+                                <rect key="frame" x="1" y="45" width="373" height="70"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="I6C-xw-RGc"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                        <constraints>
+                            <constraint firstItem="2IF-GP-2a6" firstAttribute="centerY" secondItem="g0P-xe-5yv" secondAttribute="centerY" id="Jvd-6O-UNh"/>
+                            <constraint firstAttribute="trailing" secondItem="2IF-GP-2a6" secondAttribute="trailing" constant="1" id="PKL-gl-DpK"/>
+                            <constraint firstItem="g0P-xe-5yv" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="feg-fu-EcW"/>
+                            <constraint firstItem="g0P-xe-5yv" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="40" id="mwF-oV-Tak"/>
+                            <constraint firstAttribute="trailing" secondItem="g0P-xe-5yv" secondAttribute="trailing" id="u2Y-SK-pCK"/>
+                            <constraint firstItem="2IF-GP-2a6" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="1" id="wqA-An-3fH"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="picker" destination="g0P-xe-5yv" id="ea6-gw-f57"/>
+                        <outlet property="sector" destination="2IF-GP-2a6" id="VHr-aG-OUK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="120.8" y="124.58770614692655"/>
         </scene>
     </scenes>
 </document>

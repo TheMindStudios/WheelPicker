@@ -1,0 +1,108 @@
+//
+//  WheelPickerCollectionViewLayout.swift
+//  WheelPicker
+//
+//  Created by Dima on 17.02.17.
+//  Copyright © 2017 Dima. All rights reserved.
+//
+
+import UIKit
+
+public protocol WheelPickerLayoutDelegate: class {
+    
+    func pickerViewStyle(for layout: WheelPickerCollectionViewLayout) -> WheelPickerStyle
+}
+
+open class WheelPickerCollectionViewLayout : UICollectionViewFlowLayout {
+    
+    open weak var delegate: WheelPickerLayoutDelegate?
+    
+    fileprivate var width = CGFloat(0.0)
+    fileprivate var height = CGFloat(0.0)
+    fileprivate var midX = CGFloat(0.0)
+    fileprivate var midY = CGFloat(0.0)
+    fileprivate var maxAngle = CGFloat(0.0)
+    
+    override open func prepare() {
+        
+        let visibleRect =  CGRect(origin: collectionView?.contentOffset ?? CGPoint.zero, size: collectionView?.bounds.size ?? CGSize.zero)
+        midX = visibleRect.midX
+        midY =  visibleRect.midY
+        width = visibleRect.width/2
+        height = visibleRect.height/2
+        maxAngle = CGFloat(M_PI_2)
+    }
+    
+    override open func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
+        return true
+    }
+    
+    override open func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+    
+        if let attributes = super.layoutAttributesForItem(at: indexPath) , let style = delegate?.pickerViewStyle(for: self) {
+            
+            switch style {
+            case .styleFlat:
+                 return attributes
+            case .style3D:
+                
+                switch scrollDirection {
+                case .horizontal:
+                    
+                    let distance = attributes.frame.midX - midX
+                    let currentAngle = maxAngle * distance / width / CGFloat(M_PI_2)
+                    var transform = CATransform3DIdentity
+                    transform = CATransform3DTranslate(transform, -distance, 0.0, -width)
+                    transform = CATransform3DRotate(transform, currentAngle, 0, 1, 0)
+                    transform = CATransform3DTranslate(transform, 0, 0, width)
+                    attributes.transform3D = transform
+                    attributes.alpha = abs(currentAngle) < maxAngle ? 1 : 0
+                    
+                case .vertical:
+                    
+                    let distance = attributes.frame.midY - midY
+                    let currentAngle = maxAngle * distance / height / CGFloat(M_PI_2)
+                    var transform = CATransform3DIdentity
+                    transform = CATransform3DTranslate(transform, 0, -distance, 0)
+                    transform = CATransform3DRotate(transform, currentAngle, 1, 0, 0)
+                    transform = CATransform3DTranslate(transform, 0, distance, 0)
+                    attributes.transform3D = transform
+                    attributes.alpha =  abs(currentAngle) < maxAngle / 2  ? 1.0 : 0.0
+                
+                }
+
+               return attributes
+            }
+        }
+        
+        return nil
+    }
+    
+    override open func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+        
+        if let style = delegate?.pickerViewStyle(for: self) {
+            
+            switch style {
+            case .styleFlat:
+                return super.layoutAttributesForElements(in: rect)
+            case .style3D:
+                
+                var attributes = [UICollectionViewLayoutAttributes]()
+                if  let indexs = collectionView?.numberOfItems(inSection: 0), (collectionView?.numberOfSections)! > 0 {
+                    
+                    for index in 0 ..< indexs {
+                        let indexPath = IndexPath(item: index, section: 0)
+                        if let attribut = self.layoutAttributesForItem(at: indexPath) {
+                            attributes.append(attribut)
+                        } else {
+                            attributes.append(UICollectionViewLayoutAttributes())
+                        }
+                    }
+                }
+                return attributes
+            }
+        }
+        
+        return nil
+    }
+}

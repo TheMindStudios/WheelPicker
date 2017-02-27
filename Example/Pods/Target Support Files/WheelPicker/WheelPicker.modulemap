@@ -1,0 +1,6 @@
+framework module WheelPicker {
+  umbrella header "WheelPicker-umbrella.h"
+
+  export *
+  module * { export * }
+}
