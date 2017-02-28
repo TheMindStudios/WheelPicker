@@ -55,8 +55,13 @@ open class WheelPickerCollectionViewLayout : UICollectionViewFlowLayout {
                     transform = CATransform3DTranslate(transform, -distance, 0.0, -width)
                     transform = CATransform3DRotate(transform, currentAngle, 0, 1, 0)
                     transform = CATransform3DTranslate(transform, 0, 0, width)
-                    attributes.transform3D = transform
-                    attributes.alpha = abs(currentAngle) < maxAngle ? 1 : 0
+                    if abs(currentAngle) < maxAngle {
+                        
+                        attributes.transform3D = transform
+                        attributes.alpha =   1.0
+                    } else {
+                        attributes.alpha = 0.0
+                    }
                     
                 case .vertical:
                     
@@ -66,9 +71,13 @@ open class WheelPickerCollectionViewLayout : UICollectionViewFlowLayout {
                     transform = CATransform3DTranslate(transform, 0, -distance, 0)
                     transform = CATransform3DRotate(transform, currentAngle, 1, 0, 0)
                     transform = CATransform3DTranslate(transform, 0, distance, 0)
-                    attributes.transform3D = transform
-                    attributes.alpha =  abs(currentAngle) < maxAngle / 2  ? 1.0 : 0.0
-                
+                    if abs(currentAngle) < maxAngle / 2 {
+                        
+                        attributes.transform3D = transform
+                        attributes.alpha =   1.0
+                    } else {
+                        attributes.alpha = 0.0
+                    }
                 }
 
                return attributes

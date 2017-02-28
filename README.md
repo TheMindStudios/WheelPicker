@@ -62,7 +62,7 @@ func wheelPicker(_ wheelPicker: WheelPicker, didSelectItemAt index: Int)
 
 ##Installation with CocoaPods
 
-To install via CocoaPods add this lines to your Podfile. You need CocoaPods v. 1.1 or higher
+To install via CocoaPods add this lines to your Podfile. You need CocoaPods v. 1.1.0 or higher
 
 ```bash
 $ gem install cocoapods

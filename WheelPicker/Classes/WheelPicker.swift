@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 public enum WheelPickerStyle: Int {
     case style3D = 1
@@ -75,7 +76,7 @@ public class WheelPicker: UIView {
                 self.layer.mask = maskLayer
                 self.layer.masksToBounds = true
             } else {
-                self.collectionView.layer.mask = nil
+                self.layer.mask = nil
             }
         }
     }
@@ -111,15 +112,10 @@ public class WheelPicker: UIView {
     }
     ///  selected Item
     fileprivate(set) open var selectedItem = Int(0)
+    fileprivate var prevIndex = Int(0)
     
     fileprivate var collectionView: UICollectionView!
-    
-    override open func awakeFromNib() {
-    
-        super.awakeFromNib()
-        initialize()
-    }
-    
+    fileprivate var feedbackGenerator: AnyObject?
     override public init(frame: CGRect) {
         super.init(frame: frame)
         initialize()
@@ -143,6 +139,8 @@ public class WheelPicker: UIView {
         collectionView.showsHorizontalScrollIndicator = false
         
         collectionView.register(WheelPickerCell.self, forCellWithReuseIdentifier: WheelPickerCell.identifier)
+       
+        layer.mask = nil
         
         addSubview(collectionView)
     }
@@ -214,11 +212,11 @@ extension WheelPicker {
     fileprivate func selected(_ item: Int, animated: Bool, notifySelection: Bool) {
         
         let scrollPosition = scrollDirection == UICollectionViewScrollDirection.vertical ? UICollectionViewScrollPosition.centeredVertically : UICollectionViewScrollPosition.centeredHorizontally
-        collectionView.selectItem(at: IndexPath(item:item, section: 0), animated: animated, scrollPosition: scrollPosition)
-        
-        scroll(to: item, animated)
         
         selectedItem = item
+        collectionView.selectItem(at: IndexPath(item:item, section: 0), animated: animated, scrollPosition: scrollPosition)
+
+        scroll(to: item, animated)
         
         if notifySelection == true {
             delegate?.wheelPicker?(self, didSelectItemAt: item)
@@ -327,6 +325,21 @@ extension WheelPicker {
                     }
                 }
             }
+        }
+    }
+    
+    fileprivate func feedbackGeneratorHandler() {
+        if #available(iOS 9.0, *) {
+            AudioServicesPlaySystemSoundWithCompletion(1104, nil)
+        }
+        if #available(iOS 10.0, *) {
+        
+            guard let feedbackGenerator = feedbackGenerator as? UISelectionFeedbackGenerator else {
+                return
+            }
+            feedbackGenerator.selectionChanged()
+            feedbackGenerator.prepare()
+            
         }
     }
 }
@@ -505,16 +518,28 @@ extension WheelPicker: UIScrollViewDelegate {
         switch scrollDirection {
         case .horizontal:
             
-            if let indexPath = collectionView.indexPathForItem(at: CGPoint(x: collectionView.contentOffset.x + collectionView.bounds.width/2, y: collectionView.contentOffset.y)) , let cell = collectionView.cellForItem(at: indexPath) {
+            if let indexPath = collectionView.indexPathForItem(at: CGPoint(x: collectionView.contentOffset.x + collectionView.bounds.width / 2, y: collectionView.contentOffset.y)) , let cell = collectionView.cellForItem(at: indexPath) {
                 
                 cell.isSelected = true
+                if indexPath.row != prevIndex {
+//                    feedbackGenerator = UISelectionFeedbackGenerator()
+//                    feedbackGenerator?.prepare()
+                    feedbackGeneratorHandler()
+                    prevIndex = indexPath.row
+                }
             }
             
         case .vertical:
             
-            if let indexPath = collectionView.indexPathForItem(at: CGPoint(x: collectionView.contentOffset.x, y: collectionView.contentOffset.y + collectionView.bounds.height/2)) , let cell = collectionView.cellForItem(at: indexPath) {
+            if let indexPath = collectionView.indexPathForItem(at: CGPoint(x: collectionView.contentOffset.x, y: collectionView.contentOffset.y + collectionView.bounds.height / 2)) , let cell = collectionView.cellForItem(at: indexPath) {
                 
                 cell.isSelected = true
+                if indexPath.row != prevIndex {
+//                    feedbackGenerator = UISelectionFeedbackGenerator()
+//                    feedbackGenerator?.prepare()
+                    feedbackGeneratorHandler()
+                    prevIndex = indexPath.row
+                }
             }
         }
     }
