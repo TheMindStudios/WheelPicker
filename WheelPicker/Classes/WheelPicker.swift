@@ -333,13 +333,9 @@ extension WheelPicker {
             AudioServicesPlaySystemSoundWithCompletion(1104, nil)
         }
         if #available(iOS 10.0, *) {
-        
-            guard let feedbackGenerator = feedbackGenerator as? UISelectionFeedbackGenerator else {
-                return
-            }
-            feedbackGenerator.selectionChanged()
-            feedbackGenerator.prepare()
             
+            let generator = UIImpactFeedbackGenerator(style: .medium)
+            generator.impactOccurred()
         }
     }
 }
@@ -522,8 +518,7 @@ extension WheelPicker: UIScrollViewDelegate {
                 
                 cell.isSelected = true
                 if indexPath.row != prevIndex {
-//                    feedbackGenerator = UISelectionFeedbackGenerator()
-//                    feedbackGenerator?.prepare()
+                    
                     feedbackGeneratorHandler()
                     prevIndex = indexPath.row
                 }
@@ -535,8 +530,6 @@ extension WheelPicker: UIScrollViewDelegate {
                 
                 cell.isSelected = true
                 if indexPath.row != prevIndex {
-//                    feedbackGenerator = UISelectionFeedbackGenerator()
-//                    feedbackGenerator?.prepare()
                     feedbackGeneratorHandler()
                     prevIndex = indexPath.row
                 }

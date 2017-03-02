@@ -26,10 +26,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eX0-gM-K3D" customClass="WheelPicker" customModule="WheelPicker">
-                                <rect key="frame" x="20" y="108.5" width="335" height="450"/>
+                                <rect key="frame" x="20" y="228.5" width="335" height="210"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="450" id="rIq-gr-8c7"/>
+                                    <constraint firstAttribute="height" constant="210" id="rIq-gr-8c7"/>
                                 </constraints>
                             </view>
                         </subviews>

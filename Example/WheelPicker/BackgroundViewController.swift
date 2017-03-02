@@ -14,8 +14,8 @@ class BackgroundViewController : UIViewController {
     @IBOutlet var imagePicker: WheelPicker!
     @IBOutlet var imageView: UIImageView!
     
-    fileprivate var previewImages = ["PreviewBitmap","PreviewBitmap2","PreviewBitmap3","PreviewBitmap4","PreviewBitmap5"]
-    fileprivate var images = ["Bitmap","Bitmap2","Bitmap3","Bitmap4","Bitmap5"]
+    fileprivate var previewImages = ["PreviewBitmap4","PreviewBitmap","PreviewBitmap2","PreviewBitmap3","PreviewBitmap5"]
+    fileprivate var images = ["Bitmap4","Bitmap","Bitmap2","Bitmap3","Bitmap5"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +29,7 @@ class BackgroundViewController : UIViewController {
         imagePicker.scrollDirection = .horizontal
         
         imageView.image = UIImage(named: images[0])
+        imagePicker.select(2, animated: false)
     }
     
     override func didReceiveMemoryWarning() {
