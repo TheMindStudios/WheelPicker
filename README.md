@@ -86,7 +86,6 @@ Then, run the following command:
 $ pod install
 ```
 
-##Properties
 ##License
 
 WheelPicker is available under the MIT license. See the LICENSE file for more info.
