@@ -9,8 +9,8 @@
 Pod::Spec.new do |s|
   s.name             = 'WheelPicker'
   s.version          = '1.0.0'
-  s.summary          = 'COOL WheelPicker'
-  s.description      = 'Vertical & Horizontal Picker'
+  s.summary          = 'A simple yet customizable horizontal and vertical picker view.'
+  s.description      = 'A simple yet customizable horizontal and vertical picker view. Works on iOS 9 and height'
 
   s.social_media_url = 'https://twitter.com/TheMindStudios'
   s.homepage         = 'https://github.com/TheMindStudios/WheelPicker'
