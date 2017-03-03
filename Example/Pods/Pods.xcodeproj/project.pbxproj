@@ -35,7 +35,7 @@
 		0005D21FCFE20CD670F80304944F98ED /* Pods-WheelPicker_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-WheelPicker_Tests-dummy.m"; sourceTree = "<group>"; };
 		0BBA09A4E59692B2FF027A08C0207842 /* Pods-WheelPicker_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-WheelPicker_Example-umbrella.h"; sourceTree = "<group>"; };
 		0FA03B5BF066831FB8B90EA19E467A61 /* Pods-WheelPicker_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-WheelPicker_Example-dummy.m"; sourceTree = "<group>"; };
-		13130A315F8276B3FAC9EA9EA996AB18 /* Pods_WheelPicker_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_WheelPicker_Tests.framework; path = "Pods-WheelPicker_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		13130A315F8276B3FAC9EA9EA996AB18 /* Pods_WheelPicker_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WheelPicker_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		176857E8F1D2BAB85B96B706541FBAB0 /* WheelPicker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "WheelPicker-dummy.m"; sourceTree = "<group>"; };
 		1A89B83DCBC0564A3559FD69916ECB02 /* Pods-WheelPicker_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-WheelPicker_Example-frameworks.sh"; sourceTree = "<group>"; };
 		2340673D962CCFCD947E671941C738DD /* Pods-WheelPicker_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WheelPicker_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -44,22 +44,22 @@
 		4A437F39AAA53D513440BBEEEF7397E3 /* Pods-WheelPicker_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WheelPicker_Example.release.xcconfig"; sourceTree = "<group>"; };
 		4D1B81122493B48AA6FCFDCFDD6EC67B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D47283C05CACBED20F94098B1A701DB /* WheelPicker.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = WheelPicker.xcconfig; sourceTree = "<group>"; };
-		60D35CB0D480340EA861DDB6EAC74255 /* Pods_WheelPicker_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_WheelPicker_Example.framework; path = "Pods-WheelPicker_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		60D35CB0D480340EA861DDB6EAC74255 /* Pods_WheelPicker_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WheelPicker_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A5FCCAA0109C444007E52B110D670DF /* WheelPicker-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WheelPicker-prefix.pch"; sourceTree = "<group>"; };
 		82D14280DC29ADDF4BDB647EF8A43509 /* WheelPicker-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WheelPicker-umbrella.h"; sourceTree = "<group>"; };
 		83602998A620B389A025319855793E30 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C2330290410966AF6F4EB30C9DB7B1E /* Pods-WheelPicker_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-WheelPicker_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		905BD64DC01214B4122757975248B903 /* Pods-WheelPicker_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-WheelPicker_Tests.modulemap"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		905BD64DC01214B4122757975248B903 /* Pods-WheelPicker_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-WheelPicker_Tests.modulemap"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9B1C883A88AD6A628AFC31BF7FB45A21 /* Pods-WheelPicker_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WheelPicker_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		9B1F9821E313F2231DF21B925858725B /* WheelPickerCollectionViewLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WheelPickerCollectionViewLayout.swift; sourceTree = "<group>"; };
 		B23BC9141F3EC1B7F5669AC89ED2A059 /* Pods-WheelPicker_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WheelPicker_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		C85A9E546E99E6F617B69179589DC18D /* WheelPicker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WheelPicker.swift; sourceTree = "<group>"; };
 		C93A33E15C77AEE19F644B4CEE735231 /* Pods-WheelPicker_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WheelPicker_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		CC63AED7D3903FE52F1776D17C5E824E /* WheelPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = WheelPicker.framework; path = WheelPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D125A4DC561D174688AC71BD6F048767 /* Pods-WheelPicker_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-WheelPicker_Example.modulemap"; sourceTree = "<group>"; };
-		D1B5592F6CA3F6D024CB47FC8FCD2F17 /* WheelPicker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = WheelPicker.modulemap; sourceTree = "<group>"; };
+		CC63AED7D3903FE52F1776D17C5E824E /* WheelPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WheelPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D125A4DC561D174688AC71BD6F048767 /* Pods-WheelPicker_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-WheelPicker_Example.modulemap"; sourceTree = "<group>"; };
+		D1B5592F6CA3F6D024CB47FC8FCD2F17 /* WheelPicker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = WheelPicker.modulemap; sourceTree = "<group>"; };
 		DCA8657514A6BDE75E0AE365831068ED /* Pods-WheelPicker_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-WheelPicker_Tests-resources.sh"; sourceTree = "<group>"; };
 		E7710F274D0C6664E34BB8151C3A0908 /* WheelPickerCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WheelPickerCell.swift; sourceTree = "<group>"; };
 		EBC0BA512E6FA717C4BC945FF7D1E3AD /* Pods-WheelPicker_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-WheelPicker_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -103,7 +103,6 @@
 				E7710F274D0C6664E34BB8151C3A0908 /* WheelPickerCell.swift */,
 				9B1F9821E313F2231DF21B925858725B /* WheelPickerCollectionViewLayout.swift */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -158,7 +157,6 @@
 			children = (
 				029670DA81C26C078B7899DC7836973A /* Classes */,
 			);
-			name = WheelPicker;
 			path = WheelPicker;
 			sourceTree = "<group>";
 		};
@@ -434,7 +432,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/WheelPicker/WheelPicker-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/WheelPicker/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/WheelPicker/WheelPicker.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -466,7 +464,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/WheelPicker/WheelPicker-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/WheelPicker/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/WheelPicker/WheelPicker.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;

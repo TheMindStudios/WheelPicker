@@ -6,6 +6,5 @@ target 'WheelPicker_Example' do
   target 'WheelPicker_Tests' do
     inherit! :search_paths
 
-    
   end
 end

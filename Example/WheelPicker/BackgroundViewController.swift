@@ -31,10 +31,6 @@ class BackgroundViewController : UIViewController {
         imageView.image = UIImage(named: images[0])
         imagePicker.select(2, animated: false)
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
 }
 
 extension BackgroundViewController: WheelPickerDataSource {
@@ -43,7 +39,7 @@ extension BackgroundViewController: WheelPickerDataSource {
         return previewImages.count
     }
     
-    func imageFor(_ wheelPicker: WheelPicker, _ index: Int) -> UIImage {
+    func imageFor(_ wheelPicker: WheelPicker, at index: Int) -> UIImage {
         
         return UIImage(named: previewImages[index])!
     }

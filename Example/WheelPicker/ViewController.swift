@@ -42,10 +42,6 @@ class ViewController: UIViewController {
         yearPicker.textColor = UIColor.white.withAlphaComponent(0.5)
         yearPicker.highlightedTextColor = UIColor.white
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
 }
 
 extension ViewController: WheelPickerDataSource {
@@ -60,7 +56,7 @@ extension ViewController: WheelPickerDataSource {
         return 0
     }
     
-    func titleFor(_ wheelPicker: WheelPicker, _ index: Int) -> String {
+    func titleFor(_ wheelPicker: WheelPicker, at index: Int) -> String {
         
         if monthPicker == wheelPicker {
            return months[index]
@@ -87,4 +83,11 @@ extension ViewController:WheelPickerDelegate {
         
         return CGSize(width: 0.0 , height: 0.0)
     }
+    
+//        func wheelPicker(_ wheelPicker: WheelPicker, configureLabel label: UILabel, for index: Int) {
+//    
+//            label.textColor = UIColor.black.withAlphaComponent(0.5)
+//            label.highlightedTextColor = UIColor.black
+//            label.backgroundColor = UIColor.init(hue: CGFloat(index)/CGFloat(flags.count) , saturation: 1.0, brightness: 1.0, alpha: 1.0)
+//        }
 }

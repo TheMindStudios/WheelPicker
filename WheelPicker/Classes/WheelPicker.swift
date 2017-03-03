@@ -18,16 +18,16 @@ public enum WheelPickerStyle: Int {
     
     func numberOfItems(_ wheelPicker: WheelPicker) -> Int
     
-    @objc optional func titleFor(_ wheelPicker: WheelPicker, _ index: Int) -> String
-    @objc optional func imageFor(_ wheelPicker: WheelPicker, _ index: Int) -> UIImage
+    @objc optional func titleFor(_ wheelPicker: WheelPicker, at index: Int) -> String
+    @objc optional func imageFor(_ wheelPicker: WheelPicker, at index: Int) -> UIImage
 }
 
 @objc public protocol WheelPickerDelegate: class {
     
      @objc optional func wheelPicker(_ wheelPicker: WheelPicker, didSelectItemAt index: Int)
      @objc optional func wheelPicker(_ wheelPicker: WheelPicker, marginForItem index: Int) -> CGSize
-     @objc optional func wheelPicker(_ wheelPicker: WheelPicker, configureLabel label: UILabel, for index: Int)
-     @objc optional func wheelPicker(_ wheelPicker: WheelPicker, configureImageView imageView: UIImageView, for index: Int)
+     @objc optional func wheelPicker(_ wheelPicker: WheelPicker, configureLabel label: UILabel, at index: Int)
+     @objc optional func wheelPicker(_ wheelPicker: WheelPicker, configureImageView imageView: UIImageView, at index: Int)
 }
 
 public class WheelPicker: UIView {
@@ -159,7 +159,7 @@ public class WheelPicker: UIView {
         layout.sectionInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
         layout.minimumLineSpacing = 0.0
         layout.delegate = self
-      return layout
+        return layout
     }
 }
 
@@ -170,8 +170,10 @@ extension WheelPicker {
     public func reloadData() {
         
         invalidateIntrinsicContentSize()
+        
         collectionView.collectionViewLayout.invalidateLayout()
         collectionView.reloadData()
+        
         guard ((dataSource?.numberOfItems(self)) != nil) else {
             return
         }
@@ -259,7 +261,7 @@ extension WheelPicker {
         var size =  scrollDirection == .horizontal ? CGSize(width: interitemSpacing, height: collectionView.bounds.size.height) :
             CGSize(width: collectionView.bounds.size.width, height: interitemSpacing)
         
-        if let title = dataSource?.titleFor?(self, indexPath.item) {
+        if let title = dataSource?.titleFor?(self, at: indexPath.item) {
             
             switch scrollDirection {
             case .horizontal:
@@ -277,7 +279,7 @@ extension WheelPicker {
                     size.height += marginSize.height * 2
                 }
             }
-        } else if let image = dataSource?.imageFor?(self, indexPath.item) {
+        } else if let image = dataSource?.imageFor?(self, at: indexPath.item) {
             
             switch scrollDirection {
             case .horizontal:
@@ -304,6 +306,7 @@ extension WheelPicker {
         case .styleFlat:
 
             let center = self.convert(collectionView.center, to: collectionView)
+            
             if let indexPath = collectionView.indexPathForItem(at: center) {
                 select(indexPath.item, animated: true)
             }
@@ -315,10 +318,14 @@ extension WheelPicker {
             }
             
             for index in 0 ..< numberOfItems {
+                
                 let indexPath = IndexPath(item: index, section: 0)
+                
                 if let cell = collectionView.cellForItem(at: indexPath) {
+                    
                     let half = scrollDirection == .horizontal ?  cell.bounds.size.width / 2 : cell.bounds.size.height / 2
                     let currentOffset = scrollDirection == .horizontal ? collectionView.contentOffset.x : collectionView.contentOffset.y
+                    
                     if offset(for: index) + half > currentOffset {
                         select(index, animated: true)
                         break
@@ -328,10 +335,10 @@ extension WheelPicker {
         }
     }
     
-    fileprivate func feedbackGeneratorHandler() {
-        if #available(iOS 9.0, *) {
-            AudioServicesPlaySystemSoundWithCompletion(1104, nil)
-        }
+    fileprivate func generateFeedback() {
+        
+        AudioServicesPlaySystemSoundWithCompletion(1104, nil)
+        
         if #available(iOS 10.0, *) {
             
             let generator = UIImpactFeedbackGenerator(style: .medium)
@@ -356,11 +363,13 @@ extension WheelPicker: UICollectionViewDataSource {
         return dataSource?.numberOfItems(self) ?? 0
     }
     
-   public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-       guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WheelPickerCell.identifier, for: indexPath) as? WheelPickerCell else {
-          return UICollectionViewCell()
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WheelPickerCell.identifier, for: indexPath) as? WheelPickerCell else {
+            return UICollectionViewCell()
         }
-        if let title = dataSource?.titleFor?(self, indexPath.item) {
+        
+        if let title = dataSource?.titleFor?(self, at: indexPath.item) {
             
             cell.label.isHidden = false
             cell.imageView.isHidden = true
@@ -378,9 +387,9 @@ extension WheelPicker: UICollectionViewDataSource {
                 cell.label.frame = cell.label.frame.insetBy(dx: -margin.width, dy: -margin.height)
             }
             
-            delegate?.wheelPicker?(self, configureLabel: cell.label, for: indexPath.item)
+            delegate?.wheelPicker?(self, configureLabel: cell.label, at: indexPath.item)
             
-        } else if let image = dataSource?.imageFor?(self, indexPath.item) {
+        } else if let image = dataSource?.imageFor?(self, at: indexPath.item) {
             
             cell.label.isHidden = true
             cell.imageView.isHidden = false
@@ -392,10 +401,10 @@ extension WheelPicker: UICollectionViewDataSource {
                 cell.imageView.frame = cell.imageView.frame.insetBy(dx: -margin.width, dy: -margin.height)
             }
             
-            delegate?.wheelPicker?(self, configureImageView: cell.imageView, for: indexPath.item)
-    }
-    
-    cell.label.font = self.font
+            delegate?.wheelPicker?(self, configureImageView: cell.imageView, at: indexPath.item)
+        }
+        
+        cell.label.font = self.font
         
         cell.isSelected = indexPath.item == selectedItem
         return cell
@@ -410,7 +419,7 @@ extension WheelPicker: UICollectionViewDelegateFlowLayout {
         var size =  scrollDirection == .horizontal ? CGSize(width: interitemSpacing, height: bounds.size.height) :
                                                      CGSize(width: bounds.size.width, height: interitemSpacing)
         
-        if let title = dataSource?.titleFor?(self, indexPath.item) {
+        if let title = dataSource?.titleFor?(self, at: indexPath.item) {
             
             switch scrollDirection {
             case .horizontal:
@@ -425,7 +434,7 @@ extension WheelPicker: UICollectionViewDelegateFlowLayout {
                 size.height += marginSize.height * 2
             }
 
-        } else if let image = dataSource?.imageFor?(self, indexPath.item) {
+        } else if let image = dataSource?.imageFor?(self, at: indexPath.item) {
             
             switch scrollDirection {
             case .horizontal:
@@ -470,7 +479,7 @@ extension WheelPicker: UICollectionViewDelegateFlowLayout {
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         
-         return 0.0
+        return 0.0
     }
 }
 
@@ -514,23 +523,27 @@ extension WheelPicker: UIScrollViewDelegate {
         switch scrollDirection {
         case .horizontal:
             
-            if let indexPath = collectionView.indexPathForItem(at: CGPoint(x: collectionView.contentOffset.x + collectionView.bounds.width / 2, y: collectionView.contentOffset.y)) , let cell = collectionView.cellForItem(at: indexPath) {
+            let x = collectionView.contentOffset.x + collectionView.bounds.width / 2
+            
+            if let indexPath = collectionView.indexPathForItem(at: CGPoint(x: x, y: collectionView.contentOffset.y)) , let cell = collectionView.cellForItem(at: indexPath) {
                 
                 cell.isSelected = true
                 if indexPath.row != prevIndex {
                     
-                    feedbackGeneratorHandler()
+                    generateFeedback()
                     prevIndex = indexPath.row
                 }
             }
             
         case .vertical:
             
-            if let indexPath = collectionView.indexPathForItem(at: CGPoint(x: collectionView.contentOffset.x, y: collectionView.contentOffset.y + collectionView.bounds.height / 2)) , let cell = collectionView.cellForItem(at: indexPath) {
+            let y = collectionView.contentOffset.y + collectionView.bounds.height / 2
+            
+            if let indexPath = collectionView.indexPathForItem(at: CGPoint(x: collectionView.contentOffset.x, y: y)) , let cell = collectionView.cellForItem(at: indexPath) {
                 
                 cell.isSelected = true
                 if indexPath.row != prevIndex {
-                    feedbackGeneratorHandler()
+                    generateFeedback()
                     prevIndex = indexPath.row
                 }
             }

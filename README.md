@@ -52,7 +52,17 @@ func numberOfItems(_ wheelPicker: WheelPicker) -> Int
 optional func titleFor(_ wheelPicker: WheelPicker, _ index: Int) -> String
 optional func imageFor(_ wheelPicker: WheelPicker, _ index: Int) -> UIImage
 ```
-- Using both texts and images are currently not supported. When you implement both, `titleFor(_ wheelPicker: WheelPicker, _ index: Int)` will be called and the other won't. 
+
+```swift
+func wheelPicker(_ wheelPicker: WheelPicker, configureLabel label: UILabel, at index: Int) {
+
+label.textColor = UIColor.black.withAlphaComponent(0.5)
+label.highlightedTextColor = UIColor.black
+label.backgroundColor = UIColor.init(hue: CGFloat(index)/CGFloat(flags.count) , saturation: 1.0, brightness: 1.0, alpha: 1.0)
+}
+```
+
+- Using both texts and images are currently not supported. When you implement both, `titleFor(_ wheelPicker: WheelPicker, at index: Int)` will be called and the other won't. 
 - You currently cannot specify image sizes; `WheelPicker` shows the original image in its original size. Resize your images in advance if you need.
 
 5. Optional: You can use `WheelPicker` method to observe selection changes
@@ -75,8 +85,9 @@ To integrate `WheelPicker` into your Xcode project using CocoaPods, specify it i
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '9.0'
 use_frameworks!
+
 target 'TargetName' do
-pod 'WheelPicker', '~> 1.0'
+  pod 'WheelPicker', '~> 1.0'
 end
 ```
 
