@@ -16,6 +16,8 @@ A simple yet customizable horizontal and vertical picker view
 - [x] Custom mask 
 - [x] Configure fisheye factor
 
+![Example](https://github.com/TheMindStudios/WheelPicker/blob/dev/mov1.gif)
+![Example](https://github.com/TheMindStudios/WheelPicker/blob/dev/mov2.gif)
 ##Usage
 
 1. Import `WheelPicker` module to your `ViewController` class
