@@ -57,10 +57,10 @@ optional func imageFor(_ wheelPicker: WheelPicker, _ index: Int) -> UIImage
 
 ```swift
 func wheelPicker(_ wheelPicker: WheelPicker, configureLabel label: UILabel, at index: Int) {
-
-label.textColor = UIColor.black.withAlphaComponent(0.5)
-label.highlightedTextColor = UIColor.black
-label.backgroundColor = UIColor.init(hue: CGFloat(index)/CGFloat(flags.count) , saturation: 1.0, brightness: 1.0, alpha: 1.0)
+   
+   label.textColor = UIColor.black.withAlphaComponent(0.5)
+   label.highlightedTextColor = UIColor.black
+   label.backgroundColor = UIColor.init(hue: CGFloat(index)/CGFloat(flags.count) , saturation: 1.0, brightness: 1.0, alpha: 1.0)
 }
 ```
 
