@@ -1,0 +1,22 @@
+{
+  "name": "WheelPicker",
+  "version": "0.1.0",
+  "summary": "COOL WheelPicker.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/hapichdima/WheelPicker",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "hapichdima": "hapichdima@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/hapichdima/WheelPicker.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "WheelPicker/Classes/**/*"
+}
