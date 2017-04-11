@@ -16,9 +16,9 @@ A simple yet customizable horizontal and vertical picker view
 - [x] Custom mask 
 - [x] Configure fisheye factor
 
-![Example](https://github.com/TheMindStudios/WheelPicker/blob/dev/mov1.gif)
-![Example](https://github.com/TheMindStudios/WheelPicker/blob/dev/mov2.gif)
-##Usage
+![Example](https://github.com/TheMindStudios/WheelPicker/blob/master/mov1.gif)
+![Example](https://github.com/TheMindStudios/WheelPicker/blob/master/mov2.gif)
+## Usage
 
 1. Import `WheelPicker` module to your `ViewController` class
 
@@ -72,14 +72,14 @@ label.backgroundColor = UIColor.init(hue: CGFloat(index)/CGFloat(flags.count) , 
 func wheelPicker(_ wheelPicker: WheelPicker, didSelectItemAt index: Int)
 ```
 
-##Installation with CocoaPods
+## Installation with CocoaPods
 
 To install via CocoaPods add this lines to your Podfile. You need CocoaPods v. 1.1.0 or higher
 
 ```bash
 $ gem install cocoapods
 ```
-####Podfile
+#### Podfile
 
 To integrate `WheelPicker` into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
@@ -99,6 +99,6 @@ Then, run the following command:
 $ pod install
 ```
 
-##License
+## License
 
 WheelPicker is available under the MIT license. See the LICENSE file for more info.
