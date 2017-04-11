@@ -30,7 +30,7 @@ open class WheelPickerCollectionViewLayout : UICollectionViewFlowLayout {
         midY =  visibleRect.midY
         width = visibleRect.width/2
         height = visibleRect.height/2
-        maxAngle = CGFloat(M_PI_2)
+        maxAngle = CGFloat(Double.pi / 2)
     }
     
     override open func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
@@ -50,7 +50,7 @@ open class WheelPickerCollectionViewLayout : UICollectionViewFlowLayout {
                 case .horizontal:
                     
                     let distance = attributes.frame.midX - midX
-                    let currentAngle = maxAngle * distance / width / CGFloat(M_PI_2)
+                    let currentAngle = maxAngle * distance / width / CGFloat(Double.pi / 2.0)
                     var transform = CATransform3DIdentity
                     transform = CATransform3DTranslate(transform, -distance, 0.0, -width)
                     transform = CATransform3DRotate(transform, currentAngle, 0, 1, 0)
@@ -66,7 +66,7 @@ open class WheelPickerCollectionViewLayout : UICollectionViewFlowLayout {
                 case .vertical:
                     
                     let distance = attributes.frame.midY - midY
-                    let currentAngle = maxAngle * distance / height / CGFloat(M_PI_2)
+                    let currentAngle = maxAngle * distance / height / CGFloat(Double.pi / 2)
                     var transform = CATransform3DIdentity
                     transform = CATransform3DTranslate(transform, 0, -distance, 0)
                     transform = CATransform3DRotate(transform, currentAngle, 1, 0, 0)
