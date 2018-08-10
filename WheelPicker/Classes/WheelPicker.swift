@@ -294,8 +294,8 @@ extension WheelPicker {
     
     fileprivate func sizeFor(_ string: String) -> CGSize {
         
-        let size =  string.size(attributes: [NSFontAttributeName: font])
-        let highlightedSize = string.size(attributes: [NSFontAttributeName: highlightedFont])
+        let size =  string.size(withAttributes: [NSAttributedStringKey.font: font])
+        let highlightedSize = string.size(withAttributes: [NSAttributedStringKey.font: highlightedFont])
         
         return CGSize(width: ceil(max(size.width, highlightedSize.width)), height: ceil(max(size.height, highlightedSize.height)))
     }
