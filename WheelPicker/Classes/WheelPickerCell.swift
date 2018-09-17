@@ -10,7 +10,7 @@ import UIKit
 
 open class WheelPickerCell : UICollectionViewCell {
 
-    static open let identifier = "WheelPickerCell"
+    static public let identifier = "WheelPickerCell"
     
     open var label: UILabel!
     open var imageView: UIImageView!
@@ -45,7 +45,7 @@ open class WheelPickerCell : UICollectionViewCell {
                 
                 let transition = CATransition()
                 transition.duration = 0.15
-                transition.type = kCATransition
+                transition.type = CATransitionType(rawValue: kCATransition)
                 label.layer.add(transition, forKey: nil)
                 label.font = isSelected ? highlightedFont : font
             }
