@@ -101,7 +101,7 @@ public class WheelPicker: UIView {
     }
     /// picker style .style3D or .styleFlat
     open var style = WheelPickerStyle.style3D
-    open var scrollDirection = UICollectionViewScrollDirection.horizontal {
+    open var scrollDirection = UICollectionView.ScrollDirection.horizontal {
         didSet {
             let value = self.fisheyeFactor
             self.fisheyeFactor = value
@@ -132,7 +132,7 @@ public class WheelPicker: UIView {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = backgroundColor
-        collectionView.decelerationRate = UIScrollViewDecelerationRateFast
+        collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
         collectionView.showsVerticalScrollIndicator = false
@@ -194,7 +194,7 @@ extension WheelPicker {
         case .styleFlat:
             
             let indexPath = IndexPath(item: item, section: 0)
-            let position = scrollDirection == .horizontal ? UICollectionViewScrollPosition.centeredHorizontally : UICollectionViewScrollPosition.centeredVertically
+            let position = scrollDirection == .horizontal ? UICollectionView.ScrollPosition.centeredHorizontally : UICollectionView.ScrollPosition.centeredVertically
             collectionView.scrollToItem(at: indexPath, at: position, animated: animated)
             
         case .style3D:
@@ -213,7 +213,7 @@ extension WheelPicker {
     
     fileprivate func selected(_ item: Int, animated: Bool, notifySelection: Bool) {
         
-        let scrollPosition = scrollDirection == UICollectionViewScrollDirection.vertical ? UICollectionViewScrollPosition.centeredVertically : UICollectionViewScrollPosition.centeredHorizontally
+        let scrollPosition = scrollDirection == UICollectionView.ScrollDirection.vertical ? UICollectionView.ScrollPosition.centeredVertically : UICollectionView.ScrollPosition.centeredHorizontally
         
         selectedItem = item
         collectionView.selectItem(at: IndexPath(item:item, section: 0), animated: animated, scrollPosition: scrollPosition)
@@ -293,10 +293,9 @@ extension WheelPicker {
     }
     
     fileprivate func sizeFor(_ string: String) -> CGSize {
-        
-        let size =  string.size(attributes: [NSFontAttributeName: font])
-        let highlightedSize = string.size(attributes: [NSFontAttributeName: highlightedFont])
-        
+        let size =  string.size(withAttributes: [NSAttributedString.Key.font: font])
+        let highlightedSize = string.size(withAttributes: [NSAttributedString.Key.font: highlightedFont])
+
         return CGSize(width: ceil(max(size.width, highlightedSize.width)), height: ceil(max(size.height, highlightedSize.height)))
     }
     
