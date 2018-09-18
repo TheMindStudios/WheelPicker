@@ -1,7 +1,7 @@
 # WheelPicker
 
 [![Version](https://img.shields.io/cocoapods/v/WheelPicker.svg?style=flat)](http://cocoapods.org/pods/KnobGestureRecognizer)
-![Swift 3.0.x](https://img.shields.io/badge/Swift-3.0.x-orange.svg)
+![Swift 4.2.x](https://img.shields.io/badge/Swift-4.2.x-orange.svg)
 
 
 [![TheMindStudios](https://github.com/TheMindStudios/WheelPicker/blob/master/logo.png?raw=true)](https://themindstudios.com/)
