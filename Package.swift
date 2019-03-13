@@ -8,7 +8,8 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "WheelPicker"
+            name: "WheelPicker",
+            path: "WheelPicker"
         )
     ]
 )
