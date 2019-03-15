@@ -3,6 +3,7 @@ import PackageDescription
 
 let package = Package(
     name: "WheelPicker",
+    // platforms: [.iOS("9.0")],
     products: [
         .library(name: "WheelPicker", targets: ["WheelPicker"])
     ],
