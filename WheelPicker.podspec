@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'WheelPicker'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = 'A simple yet customizable horizontal and vertical picker view. Works on iOS 9 and higher'
   s.description      = 'Here is an easy-to-customize picker, where you can choose the reaction it rolls in, display pictures or text + there are 2 picker styles to choose from - 3D and Flat '
 
